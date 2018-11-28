@@ -1,0 +1,98 @@
+.container {
+    padding: 2%;
+    margin-bottom: 2em;
+}
+.heartContainer {
+    position: absolute;
+    top: 1%;
+    right: 1.5%;
+    z-index: 700;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+.likedHeart {
+    color: red;
+    text-shadow: 2px 2px 3px #51002a;
+}
+
+.notLikedHeart {
+    color: #f2f2f2;
+    text-shadow: 2px 2px 3px #000;
+}
+
+.card {
+    margin: 0.5%;
+    display: inline;
+}
+
+.card-group {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h4,
+p.card-text {
+    
+    text-transform: uppercase;
+}
+
+p.card-text {
+    font-size: 12px;
+    display: inline;
+}
+
+p.card-desc {
+    font-size: 12px;
+    
+}
+
+p.card-title {
+    font-size: 12px;
+    
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+
+
+.container-image {
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: center/cover;
+    height: auto;
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0 0 100% 0;
+    overflow: hidden;
+    position: relative;
+
+    
+}
+.img-fluid {
+    position: absolute;
+    width: auto;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+}
+    
+
+
+@media screen and (max-width: 560px) {
+    .card {
+        min-width: 100%;
+    }
+    .card-group {
+        min-width: 100%;
+        text-align: center;
+    }
+}

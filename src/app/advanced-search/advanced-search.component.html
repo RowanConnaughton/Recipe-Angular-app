@@ -1,0 +1,108 @@
+<div class="container">
+
+  <h4><i class="fa fa-search" aria-hidden="true"></i> <b>Search for a recipe:</b></h4>
+  <hr>
+  <br>
+
+  <form class="search" #f="ngForm" (ngSubmit)="search($event)">
+
+      <!-- Words queries -->
+      <div class="row">
+          <div class="col-lg-6 col-md-12">
+              <div class="form-group">
+                  <b>Include keywords:</b>
+                  <input size="30" height="100" class="isearch" name="searchQuery.query" [(ngModel)]="searchQuery.query" minlength="3" placeholder="i.e. chicken, bacon...">
+              </div>
+          </div>
+
+          <div class="col-lg-6 col-md-12">
+              <div class="form-group">
+                  <b>Exclude keywords:</b>
+                  <input size="30" height="100" class="isearch" name="searchQuery.excludeIngredients" [(ngModel)]="searchQuery.excludeIngredients" minlength="3" placeholder="i.e. tomato, almond..."><br>
+              </div>
+              <br>
+          </div>
+      </div>
+
+      <div class="row">
+          <!-- Intolerances button and modal -->
+          <div class="col-lg-4 col-sm-6 col-xs-12">
+
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#allergensModal" (click)="open(content)">
+                I am allergic to...
+              </button><br>
+
+              <div *ngFor="let intolerance of intolerancesArray" class="foodtype">
+                  <span *ngIf="intolerance.checked" (click)="intolerance.checked = false"> {{intolerance.value}} <i class="fa fa-times fa-lg" aria-hidden="true"></i></span>
+              </div>
+
+
+              <ng-template #content let-d="close" class="modal optionsModal" id="allergensModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                          <div class="modal-body">
+                              <div class="advancedOptions" *ngFor="let option of intolerancesArray">
+                                  <label>
+                                      <input class="" type="checkbox"
+                                      name="option"
+                                      value="{{option.value}}"
+                                      [(ngModel)]="option.checked"/>
+                                      {{option.value}}
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary btn-options" data-dismiss="modal" (click)="d('Close click')">Done!</button>
+                          </div>
+                      </div>
+                  </div>
+              </ng-template>
+            </div>
+
+          <!-- Type button and modal -->
+          <div class="col-lg-4 col-sm-6 col-xs-12">
+
+              <button type="button" class="btn btn-primary btn2" data-toggle="modal" data-target="#typesModal" (click)="open1(content1)" >
+                  I want to make a...
+              </button><br>
+              <div  class="foodtype" *ngIf="searchQuery.type" (click)="removeType()"> {{searchQuery.type}} <i class="fa fa-times fa-lg" aria-hidden="true"></i></div>
+                  <ng-template #content1 let-c="close" class="modal optionsModal" id="typesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                              <div class="modal-body">
+                                  <div class="advancedOptions" *ngFor="let foodtype of typesArray">
+                                      <label>
+                                      <input class="" type="radio" 
+                                      value="{{foodtype}}" [(ngModel)]="searchQuery.type" name="searchQuery.type">
+                                      {{foodtype}}
+                                  </label>
+                                  </div>
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary btn-options" data-dismiss="modal" (click)="checkTypes()" (click)="c('Close click')">Done!</button>
+                              </div>
+                          </div>
+                      </div>
+                  </ng-template>
+              </div>
+          
+          <!-- Diet type options -->
+          <div class="col-lg-4 col-xs-12 dietType">
+              <div class="form-group">
+                  <h6><b>I am...</b></h6>
+                  <div class="form-check" *ngFor="let diettype of dietArray">
+                      <input class="form-check-input" type="radio" value="{{diettype}}" [(ngModel)]="searchQuery.diet" name="searchQuery.diet"><br><div> {{diettype}}</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+          <button type="submit" class="btn btn-warning"><b>Search</b></button>
+      </div>
+  </form>
+
+
+</div>

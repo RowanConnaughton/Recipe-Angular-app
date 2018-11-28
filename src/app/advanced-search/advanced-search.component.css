@@ -1,0 +1,118 @@
+.container {
+    padding: 2em;
+}
+
+.search {
+    display: block;
+    margin: auto;
+    width: 95%;
+}
+
+.advancedOptions {
+    display: block;
+    padding-left: 7%;
+}
+
+h4 {
+    
+    letter-spacing: 1px;
+}
+
+h6 {
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+.form-group {
+    
+    letter-spacing: 1px;
+}
+
+
+
+input {
+    margin-left: 1em;
+}
+
+textarea:focus,
+input:focus {
+    outline: none !important;
+    box-shadow: 0 0 20px lightblue;
+    border: 2px solid lightblue;
+}
+
+.isearch {
+    padding-left: 0.5em;
+}
+
+.form-check {
+    letter-spacing: 1px;
+}
+
+ul {
+    letter-spacing: 1px;
+    margin-top: 5%;
+}
+
+.navbar>li {
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+li {padding-left: 3em;
+    padding-right: 3em;
+    margin-top: -6%;
+}
+
+.foodtype {
+    letter-spacing: 1px;
+    margin-left: 2em;
+    margin-bottom: 0.5em;
+}
+
+.dietType {
+    padding-top: 2em;
+    padding-left: 2em;
+}
+
+
+
+
+
+/* ICONS */
+
+.fa-times {
+    color: #d65164;
+}
+
+
+/* BUTTONS */
+
+
+
+
+
+.btn-warning {
+    letter-spacing: 2px;
+    
+    
+    border: none;
+    margin: auto;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+
+
+@media screen and (max-width: 560px) {
+    .btn-primary,
+    .btn-options {
+        margin: auto;
+        display: block;
+    }
+}
+
+@media screen and (max-width:742px) {
+    
+       
+    }

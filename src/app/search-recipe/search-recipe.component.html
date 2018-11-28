@@ -1,0 +1,11 @@
+<app-advanced-search (searchAdvanced)="searchNew($event)"></app-advanced-search>
+
+<app-cards-container  [imageurl]="imageurl" [recipes]="recipes" [title]="recTitle" *ngIf="recipes.length"></app-cards-container>
+
+<!-- search box to return recipe from api -->
+
+<div *ngIf="!recipes.length">
+    <div class="container">
+        <h4>No recipes found. Try something else!</h4>
+    </div>
+</div>

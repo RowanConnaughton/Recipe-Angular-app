@@ -1,0 +1,28 @@
+
+<h1>Favourites</h1>
+<ng-container *ngIf="fav$ | async as fav" ><!--  -->
+  <div class="row">
+
+    <div  *ngFor="let item of fav.items" class="col-lg-3 col-md-4 col-sm-6 col-xs-6 pb-4 recipecard" >
+        <div class="card-group">
+            <div   class="card">
+               
+                <!-- *ngFor="let item of fav$ | async; let i = index" -->
+                    <a  class="btn btn-default heartContainer">
+                   <i class="fa fa-heart fa-lg likedHeart" aria-hidden="false"  (click)="removeFromFav(item)"></i></a>
+                
+                    <div  class="row container-image">
+                        <img class="img-fluid" src="https://spoonacular.com/recipeImages/{{item.imageurls}}">
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">{{item.title}}</h4>
+                        <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                        <p class="card-text "><b> {{item.readyInMinuties}} min </b></p>
+                    </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+</ng-container>

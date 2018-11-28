@@ -1,0 +1,63 @@
+<p>
+<a routerLink="/admin/recipes/new" class="btn btn-primary">New Recipe</a>
+</p>
+
+<p>
+  <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
+</p>
+
+<!-- <table class="table">
+    <thead>
+      <tr>
+      <th>Title</th>
+      <th>Prep Time</th>
+      <th></th>
+    </tr>
+    </thead>
+  
+  <tbody>
+      <tr *ngFor="let r of filteredRecipes">
+        <td>{{r.title}}</td>
+        <td>{{r.time}} Mins</td>
+        <td>
+          <a [routerLink]="['/admin/recipes/', r.$key]">Edit</a>
+        </td>
+      </tr>
+  </tbody>
+</table> -->
+
+
+<data-table 
+[items]="items"
+[itemCount]="itemCount"
+(reload)="reloadItems($event)"  >
+
+<data-table-column
+[property]="'item'"
+[header]="'Title'"
+[sortable]="true"
+[resizable]="true">
+
+<ng-template #dataTableCell let-item="item">{{item.title}}</ng-template>
+
+</data-table-column>
+
+<data-table-column
+[property]="'item'"
+[header]="'Time'"
+[sortable]="true"
+[resizable]="true">
+
+<ng-template #dataTableCell let-item="item">{{item.time}}</ng-template>
+
+</data-table-column>
+
+<data-table-column
+[property]="'key'">
+
+
+<ng-template #dataTableCell let-item="item"><a [routerLink]="['/admin/recipes/', item.key]">Edit</a></ng-template>
+
+</data-table-column>
+
+</data-table>

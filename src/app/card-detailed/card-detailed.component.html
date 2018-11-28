@@ -1,0 +1,45 @@
+<div *ngIf="recipeInfo" class="container">
+  <div class="row">
+      <div class="col-md-6 col-sm-12">
+          <img class="img-fluid" src="{{recipeInfo.image}}">
+          <br>
+          <div class="recipeIngredients">
+              <ul *ngIf="ingredients">
+                  <h5>Ingredients:</h5>
+                  <li *ngFor="let foodthing of ingredients" class="ingrd">
+                      <b>{{foodthing.amount}} {{foodthing.unit}}</b> {{foodthing.name}}
+                  </li>
+              </ul>
+
+             
+          </div>
+      </div>
+
+      <div class="col-md-6 col-sm-12">
+          <div class="recipetitle">
+              <h2>{{recipeInfo.title}}</h2>
+              <hr>
+              <div class="recipedesc">
+                  <b>Preparing time:</b> {{recipeInfo.readyInMinutes}} minutes</div>
+          </div>
+          <br>
+
+          <ol *ngIf="instructions">
+              <h5>Instructions:</h5>
+              <li *ngFor="let phase of instructions">{{phase.step}}</li>
+              <br>
+
+              <p><a class="cursive-link" href="{{recipeInfo.sourceUrl}}">Original recipe: {{recipeInfo.sourceName}}</a></p>
+          </ol>
+
+      </div>
+  </div>
+
+
+  
+</div>
+
+
+<div class="container">
+  <app-cards-container (navigateTo)="navigate($event)"  [recipes]="similarRecipes" [imageurl]="imageurl" [title]="recipesTitle"></app-cards-container>
+</div>

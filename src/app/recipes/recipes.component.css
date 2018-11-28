@@ -1,0 +1,22 @@
+.carousel-overlay {
+    color:white;
+    background-color: rgb(108, 154, 209, 0.7);
+    
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+    left: 0;
+  }
+
+.carousel-item{
+  height: 400px;
+}
+
+.logLink{
+  color: darkblue;
+
+}
+
+  .container-fluid{
+    padding: 0px;
+  }

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" routerLink="/"><fa-icon [icon]="['fas', 'utensils']" size="xs"></fa-icon> Savour</a>
+  <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+    aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapseExample" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">
+      
+      
+
+      <ng-template #anonymousUser>
+        <li class="nav-item ">
+          <a class="nav-link " routerLink="/login"><fa-icon [icon]="['fas', 'user']" size="xs"></fa-icon> Login</a>
+        </li>
+      </ng-template>
+
+      <li>
+        <a class="nav-link " routerLink="/search"><fa-icon [icon]="['fas', 'search']" size="xs"></fa-icon> Search</a>
+      </li>
+
+      
+      
+      <li  ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false"><fa-icon [icon]="['fas', 'user']" size="xs"></fa-icon> {{appUser.name}}</a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " routerLink="/my/favorites"><fa-icon [icon]="['fas', 'heart']" size="xs"></fa-icon> My Favourites</a>
+          <a *ngIf="appUser.isAdmin" class="dropdown-item" routerLink="/admin/recipes"><fa-icon [icon]="['fas', 'utensils']" size="xs"></fa-icon> Manage Recipes</a>
+          <a class="dropdown-item" (click)="logout()"><fa-icon [icon]="['fas', 'sign-out-alt']" size="xs"></fa-icon> Log Out</a>
+        </div>
+      </li>
+    </ul>
+    
+  </div>
+</nav>

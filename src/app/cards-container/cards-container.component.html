@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div *ngIf="recipes">
+
+      
+      <br>
+
+      <div class="row">
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 recipecard" *ngFor="let recipe of recipes">
+              <div class="card-group">
+                  <div class="card">
+                     <a  class="btn btn-default heartContainer">
+                        
+                        <i class="fa fa-heart fa-lg likedHeart" aria-hidden="false" *ngIf="recipe.isliked" (click)="removeFromFav"></i> 
+                     <i class="fa fa-heart fa-lg notLikedHeart" aria-hidden="flase" *ngIf="!recipe.isliked" (click)="addToFav(recipe)"></i></a>
+                      <a [routerLink]="['/recipe', recipe.id]" (click)="navigate(recipe.id)">
+                          <div class="row container-image">
+                              <img class="img-fluid" src="{{imageurl}}{{recipe.image}}">
+                          </div>
+                          <div class="card-block">
+                              <p class="card-title">{{recipe.title}}</p>
+                              <i class="fa fa-clock-o" aria-hidden="true"></i>
+                              <p class="card-text align-middle"><b> {{recipe.readyInMinutes}} min </b></p>
+                          </div>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
